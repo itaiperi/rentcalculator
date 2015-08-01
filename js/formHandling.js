@@ -120,7 +120,6 @@ function processData(e) {
     'rooms': {'default': 0, 'controlDivName': 'rooms-div'},
     'arrangement': {'default': '', 'controlDivName': 'arrangement-div'},
     'roommates': {'default': 0, 'controlDivName': 'roommates-div'},
-    'floor': {'default': '', 'controlDivName': 'floor-div'},
     'renovationLevel': {'default': '', 'controlDivName': 'renovationLevel-div'},
     'apartmentSize': {'default': '', 'controlDivName': 'apartmentSize-div'},
     'roomSize': {'default': '', 'controlDivName': 'roomSize-div'},
