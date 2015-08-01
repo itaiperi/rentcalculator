@@ -1,0 +1,57 @@
+body {
+  display: flex;
+  min-height: 100vh;
+  flex-direction: column;
+}
+
+main {
+  flex: 1 0 auto;
+  margin-left: 10%;
+  margin-right: 10%;
+}
+
+#roommates-div {
+  display: none;
+}
+
+#finalPriceBox {
+  display: none;
+}
+
+#processingRequestMessageBox {
+  display: none;
+}
+
+#errorsMessageBox {
+  display: none;
+}
+
+#emptyFieldsMessageBox {
+  display: none;
+}
+
+.container {
+     padding-right: 0; /*15px in bootstrap.css*/
+     padding-left: 0;  /*idem*/
+     margin-right: auto;
+     margin-left: auto;
+}
+
+hr.footer {
+  margin: 25px 0;
+    height: 1px;
+    background: -webkit-linear-gradient(left,rgba(0,107,178,0),rgba(0,107,178,1), rgba(0,107,178,0));
+    background:    -moz-linear-gradient(left,rgba(0,107,178,0),rgba(0,107,178,1), rgba(0,107,178,0));
+    background:     -ms-linear-gradient(left,rgba(0,107,178,0),rgba(0,107,178,1), rgba(0,107,178,0));
+    background:      -o-linear-gradient(left,rgba(0,107,178,0),rgba(0,107,178,1), rgba(0,107,178,0));
+    background:        -linear-gradient(left,rgba(0,107,178,0),rgba(0,107,178,1), rgba(0,107,178,0));
+
+nav {
+
+  background: -webkit-linear-gradient(90deg, #2c3e50 10%, #3498db 90%); /* Chrome 10+, Saf5.1+ */
+  background:    -moz-linear-gradient(90deg, #2c3e50 10%, #3498db 90%); /* FF3.6+ */
+  background:     -ms-linear-gradient(90deg, #2c3e50 10%, #3498db 90%); /* IE10 */
+  background:      -o-linear-gradient(90deg, #2c3e50 10%, #3498db 90%); /* Opera 11.10+ */
+  background:         linear-gradient(90deg, #2c3e50 10%, #3498db 90%); /* W3C */
+
+}

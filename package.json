@@ -1,0 +1,30 @@
+{
+  "name": "rent-calculator",
+  "version": "1.0.0",
+  "description": "Rent price calculator for apartments around the Technion",
+  "main": "app.js",
+  "scripts": {
+    "start": "node app.js"
+  },
+  "dependencies": {
+    "express": "~4.9.x",
+    "body-parser": "1.13.3",
+    "async": "~1.4.0",
+    "request": "~2.60.0"
+
+  },
+  "engines": {
+    "node": "0.12.2"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/noodlez04/rentcalculator"
+  },
+  "keywords": [
+    "rent",
+    "haifa",
+    "students",
+    "technion"
+  ],
+  "license": "MIT"
+}

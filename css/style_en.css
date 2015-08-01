@@ -1,0 +1,51 @@
+body {
+	display: flex;
+	min-height: 100vh;
+	flex-direction: column;
+}
+
+main {
+	flex: 1 0 auto;
+	margin-left: 10%;
+	margin-right: 10%;
+}
+
+#errorsMessage {
+	color: red;
+	display: none;
+}
+
+#roommatesNumber {
+	display: none;
+}
+
+.error-icon {
+	color: red;
+	display: none;
+}
+
+#submitButton {
+	background: -webkit-linear-gradient(90deg, #2c3e50 10%, #3498db 90%); /* Chrome 10+, Saf5.1+ */
+	background:    -moz-linear-gradient(90deg, #2c3e50 10%, #3498db 90%); /* FF3.6+ */
+	background:     -ms-linear-gradient(90deg, #2c3e50 10%, #3498db 90%); /* IE10 */
+	background:      -o-linear-gradient(90deg, #2c3e50 10%, #3498db 90%); /* Opera 11.10+ */
+	background:         linear-gradient(90deg, #2c3e50 10%, #3498db 90%); /* W3C */
+}
+
+nav {
+
+	background: -webkit-linear-gradient(90deg, #2c3e50 10%, #3498db 90%); /* Chrome 10+, Saf5.1+ */
+	background:    -moz-linear-gradient(90deg, #2c3e50 10%, #3498db 90%); /* FF3.6+ */
+	background:     -ms-linear-gradient(90deg, #2c3e50 10%, #3498db 90%); /* IE10 */
+	background:      -o-linear-gradient(90deg, #2c3e50 10%, #3498db 90%); /* Opera 11.10+ */
+	background:         linear-gradient(90deg, #2c3e50 10%, #3498db 90%); /* W3C */
+
+}
+
+footer.page-footer {
+	background: -webkit-linear-gradient(90deg, #2c3e50 10%, #3498db 90%); /* Chrome 10+, Saf5.1+ */
+	background:    -moz-linear-gradient(90deg, #2c3e50 10%, #3498db 90%); /* FF3.6+ */
+	background:     -ms-linear-gradient(90deg, #2c3e50 10%, #3498db 90%); /* IE10 */
+	background:      -o-linear-gradient(90deg, #2c3e50 10%, #3498db 90%); /* Opera 11.10+ */
+	background:         linear-gradient(90deg, #2c3e50 10%, #3498db 90%); /* W3C */
+}
