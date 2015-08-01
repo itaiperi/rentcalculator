@@ -15,9 +15,9 @@ app.get('/', function(request, response) {
   response.sendFile(__dirname + '/index.html')
 });
 
-// app.get('/test123', function(request, response) {
-//   response.sendFile(__dirname + '/index_test.html');
-// });
+app.get('/test123', function(request, response) {
+  response.sendFile(__dirname + '/index_test.html');
+});
 
 app.post('/calculate', function(request, response) {
   console.log('INFO: received request from:', request.ip);

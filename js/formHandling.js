@@ -170,7 +170,6 @@ function processData(e) {
               errorsString = errorsString.concat('שגיאה בשדה: ', result.errors[key].component);
               errorsString = errorsString.concat(', סיבת השגיאה: ', result.errors[key].status);
             }
-            console.log(errorsString);
             $('#calculationErrors').html(errorsString);
             $('#errorsMessageBox').show();
           }

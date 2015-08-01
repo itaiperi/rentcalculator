@@ -43,12 +43,20 @@ function getCity(origin, callback) {
 function getCityAux(origin, callback) {
 
   var propertiesObject = {
-    origin: encodeURI(origin),
-    destination: encodeURI('Tel Aviv, Israel'),
+    origin: origin,
+    destination: 'Tel Aviv, Israel',
     language: 'en'
   };
 
-  request({url: baseURL, qs: propertiesObject}, function(err, response, body) {
+  var requestOptions = {
+    url: baseURL,
+    qs: propertiesObject,
+    headers: {
+      'Content-Encoding': 'UTF_8'
+    }
+  };
+
+  request(requestOptions, function(err, response, body) {
     if(err) {
       callback(true, errorGenerator.error(15, 'address'));
       return;
@@ -72,14 +80,22 @@ function getTechnionWalkingTime(origin, destinations, callback) {
 function getTechnionWalkingTimeAux(origin, destinations, minTechnionWalkingTime, callback) {
 
   var propertiesObject = {
-    origin: encodeURI(origin),
-    destination: encodeURI(destinations[0]),
+    origin: origin,
+    destination: destinations[0],
     mode: 'walking',
     language: 'en'
   };
   destinations.splice(0, 1);
 
-  request({url: baseURL, qs: propertiesObject}, function(err, response, body) {
+  var requestOptions = {
+    url: baseURL,
+    qs: propertiesObject,
+    headers: {
+      'Content-Encoding': 'UTF_8'
+    }
+  };
+
+  request(requestOptions, function(err, response, body) {
     if(err) {
       callback(true, errorGenerator.error(15, 'address'));
       return;
@@ -115,15 +131,23 @@ function getBusstopWalkingTime(origin, destinations, callback) {
 function getBusstopWalkingTimeAux(origin, destinations, minBusstopWalkingTime, callback) {
 
   var propertiesObject = {
-    origin: encodeURI(origin),
-    destination: encodeURI(destinations[0]),
+    origin: origin,
+    destination: destinations[0],
     mode: 'transit',
     departure_time: '1436072400',
     language: 'en'
   };
   destinations.splice(0, 1);
 
-  request({url: baseURL, qs: propertiesObject}, function(err, response, body) {
+  var requestOptions = {
+    url: baseURL,
+    qs: propertiesObject,
+    headers: {
+      'Content-Encoding': 'UTF_8'
+    }
+  };
+
+  request(requestOptions, function(err, response, body) {
     if(err) {
       callback(true, errorGenerator.error(15, 'address'));
       return;
