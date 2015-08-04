@@ -2,12 +2,126 @@ body {
   display: flex;
   min-height: 100vh;
   flex-direction: column;
+  background-color: #F4F4F4;
+}
+
+@font-face {
+  font-family: 'Alef-Bold';
+  src: url('Alef-Bold.ttf');
+}
+
+@font-face {
+  font-family: 'Alef-Regular';
+  src: url('Alef-Regular.ttf');
+}
+
+.navbar-custom {
+  background-color: #1D47B7;
+}
+
+@media (min-width: 1200px) {
+  .navbar-custom .brand {
+    font-size: 28px;
+  }
+  .navbar-custom .group-link {
+    font-size: 24px;
+  }
+  .container-form {
+    border-style: solid;
+    border-width: 2px;
+    border-radius: 5px;
+    border-color: #4D94FF;
+  }
+}
+
+/* Landscape tablets and medium desktops */
+@media (min-width: 992px) and (max-width: 1199px) {
+.navbar-custom .brand {
+    font-size: 26px;
+  }
+  .navbar-custom .group-link {
+    font-size: 22px;
+  }
+  .container-form {
+    border-style: solid;
+    border-width: 2px;
+    border-radius: 5px;
+    border-color: #4D94FF;
+  }
+}
+
+/* Portrait tablets and small desktops */
+@media (min-width: 768px) and (max-width: 991px) {
+.navbar-custom .brand {
+    font-size: 24px;
+  }
+  .navbar-custom .group-link {
+    font-size: 20px;
+  }
+  .container-form {
+    border-style: solid;
+    border-width: 2px;
+    border-radius: 5px;
+    border-color: #4D94FF;
+  }
+}
+
+/* Landscape phones and portrait tablets */
+@media (max-width: 767px) {
+.navbar-custom .brand {
+    font-size: 20px;
+  }
+  .navbar-custom .group-link {
+    font-size: 16px;
+  }
+}
+
+/* Portrait phones and smaller */
+@media (max-width: 480px) {
+.navbar-custom .brand {
+    font-size: 18px;
+  }
+  .navbar-custom .group-link {
+    font-size: 14px;
+  }
+}
+
+.navbar-custom .brand {
+  float: right;
+  height: 50px;
+  padding: 15px 15px;
+  font-family: 'Alef-Bold', 'Arial';
+  line-height: 20px;
+  color: #FFFFFF;
+}
+
+.navbar-custom .brand > a {
+  color: #FFFFFF;
+  text-decoration: none;
+}
+
+.navbar-custom .group-link {
+  float: left;
+  height: 50px;
+  padding: 15px 15px;
+  font-family:'Alef-Regular', 'Arial';
+  line-height: 20px;
+  color: #FFFFFF;
+}
+
+.navbar-custom .group-link > a {
+  color: #FFFFFF;
+  text-decoration: none;
 }
 
 main {
   flex: 1 0 auto;
   margin-left: 10%;
   margin-right: 10%;
+}
+
+.container-form {
+  background-color: #FFFFFF;
 }
 
 #roommates-div {
@@ -45,13 +159,3 @@ hr.footer {
     background:     -ms-linear-gradient(left,rgba(0,107,178,0),rgba(0,107,178,1), rgba(0,107,178,0));
     background:      -o-linear-gradient(left,rgba(0,107,178,0),rgba(0,107,178,1), rgba(0,107,178,0));
     background:        -linear-gradient(left,rgba(0,107,178,0),rgba(0,107,178,1), rgba(0,107,178,0));
-
-nav {
-
-  background: -webkit-linear-gradient(90deg, #2c3e50 10%, #3498db 90%); /* Chrome 10+, Saf5.1+ */
-  background:    -moz-linear-gradient(90deg, #2c3e50 10%, #3498db 90%); /* FF3.6+ */
-  background:     -ms-linear-gradient(90deg, #2c3e50 10%, #3498db 90%); /* IE10 */
-  background:      -o-linear-gradient(90deg, #2c3e50 10%, #3498db 90%); /* Opera 11.10+ */
-  background:         linear-gradient(90deg, #2c3e50 10%, #3498db 90%); /* W3C */
-
-}

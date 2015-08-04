@@ -8,6 +8,7 @@ app.set('port', (process.env.PORT || 5000));
 app.use(express.static(__dirname + '/js'));
 app.use(express.static(__dirname + '/css'));
 app.use(express.static(__dirname + '/resources/images'));
+app.use(express.static(__dirname + '/resources/fonts'));
 app.use(express.static(__dirname + '/resources/external-libraries'));
 app.use(bodyParser.json());
 

@@ -16,355 +16,296 @@
 
 <body>
   <!--Responsive Navigation Bar-->
-    <!--<nav class='navbar navbar-inverse navbar-default'>
-      <div class='container'>
-        <div class='navbar-header'>
-          <button type='button' class='navbar-toggle collapsed' data-toggle='collapse' data-target='#navbar' aria-expanded='false' aria-controls='navbar'>
-            <span class='sr-only'>Toggle navigation</span>
-            <span class='icon-bar'></span>
-            <span class='icon-bar'></span>
-            <span class='icon-bar'></span>
-          </button>
-          <a class='navbar-brand' href='#'>Project name</a>
-        </div>
-        <div id='navbar' class='collapse navbar-collapse'>
-          <ul class='nav navbar-nav'>
-            <li class='active'><a href='#'>Home</a></li>
-            <li><a href='#about'>About</a></li>
-            <li><a href='#contact'>Contact</a></li>
-          </ul>
-        </div
-      </div>
-    </nav>-->
+  <nav class='navbar navbar-custom'>
+    <div class='container'>
+      <span class='brand'><a href='#'>מחירון שכירויות חיפה 2015</a></span>
+      <span class='group-link'>בשיתוף עם <a href='https://www.facebook.com/groups/1670512393182120/' target='_blank'>'שאלות על דירות סטודנטים חיפה'</a></span>
+    </div>
+  </nav>
+
+  <!-- Form Begins -->
+  <div class='container container-form' role='main'>
     <img src='banner.jpg' class='img-responsive'/>
+    <form onsubmit='event.preventDefault(); return processData();'>
 
-    <!-- Form Begins -->
-    <main>
+      <!-- Apartment Properties -->
+      <!-- Address -->
+      <div id='address-div' class='form-group col-xs-12 col-sm-10 col-sm-offset-1'>
+        <h2>מאפיינים כלליים</h2>
+        <label class='control-label' for='address'>כתובת הדירה</label>
+        <input type='text' id='address' class='form-control' placeholder='...' onchange='updateAddress(value)'/>
+      </div>
 
-      <div class='row'>
-        <form onsubmit='event.preventDefault(); return processData();'>
+      <!-- Rooms -->
+      <div id='rooms-div' class='form-group col-xs-12 col-sm-10 col-sm-offset-1'>
+        <label class='control-label' for='rooms'>מס' החדרים בדירה</label>
+        <select id='rooms' class='form-control' onchange='updateRoomsNumber(value);'>
+          <option value='' disabled selected>בחר/י אפשרות</option>
+          <option value='1'>1 חדר</option>
+          <option value='1.5'>1.5 חדרים</option>
+          <option value='2'>2 חדרים</option>
+          <option value='2.5'>2.5 חדרים</option>
+          <option value='3'>3 חדרים</option>
+          <option value='3.5'>3.5 חדרים</option>
+          <option value='4'>4 חדרים</option>
+          <option value='4.5'>4.5 חדרים</option>
+          <option value='5'>5 חדרים</option>
+          <option value='5.5'>5.5 חדרים</option>
+        </select>
+      </div>
 
-          <!-- Apartment Properties -->
-          <div class='row'>
-            <h1>מאפיינים כלליים</h1>
-          </div>
-
-          <!-- Address -->
-          <div class='row'>
-            <div id='address-div' class='form-group col-xs-12 col-sm-10 col-md-7'>
-              <label class='control-label' for='address'>כתובת הדירה</label>
-              <input type='text' id='address' class='form-control' placeholder='...' onchange='updateAddress(value)'/>
-            </div>
-          </div>
-
-          <!-- Rooms -->
-          <div class='row'>
-            <div id='rooms-div' class='form-group col-xs-12 col-sm-10 col-md-7'>
-              <label class='control-label' for='rooms'>מס' החדרים בדירה</label>
-              <select id='rooms' class='form-control' onchange='updateRoomsNumber(value);'>
-                <option value='' disabled selected>בחר/י אפשרות</option>
-                <option value='1'>1 חדר</option>
-                <option value='1.5'>1.5 חדרים</option>
-                <option value='2'>2 חדרים</option>
-                <option value='2.5'>2.5 חדרים</option>
-                <option value='3'>3 חדרים</option>
-                <option value='3.5'>3.5 חדרים</option>
-                <option value='4'>4 חדרים</option>
-                <option value='4.5'>4.5 חדרים</option>
-                <option value='5'>5 חדרים</option>
-                <option value='5.5'>5.5 חדרים</option>
-              </select>
-            </div>
-          </div>
-
-          <!-- Living Arrangement -->
-          <div class='row'>
-            <div id='arrangement-div' class='form-group col-xs-12 col-sm-10 col-md-7'>
-              <label class='control-label'>הסדר מגורים</label>
-              <div class='radio'>
-                <label for='single'>
-                  <input name='living_arrangement' type='radio' id='single' onchange='updateLivingArrangement(id);'/>
-                  יחיד
-                </label>
-              </div>
-              <div class='radio'>
-                <label for='couple'>
-                  <input name='living_arrangement' type='radio' id='couple' onchange='updateLivingArrangement(id);'/>
-                  זוג
-                </label>
-              </div>
-              <div class='radio'>
-                <label for='roommates'>
-                  <input name='living_arrangement' type='radio' id='roommates' onchange='updateLivingArrangement(id);'/>
-                  שותפים
-                </label>
-              </div>
-            </div>
-          </div>
-
-          <!-- Number of roommates -->
-          <div class='row'>
-            <div id='roommates-div' class='form-group col-xs-12 col-sm-10 col-md-7'>
-              <label class='control-label' for='roommatesNumberSelect'>מס' השותפים בדירה</label>
-              <select id='roommatesNumberSelect' class = 'form-control' onchange='updateRoommatesNumber(value);' >
-                <option value='' disabled selected>בחר/י אפשרות</option>
-                <option value='2'>2 שותפים</option>
-                <option value='3'>3 שותפים</option>
-                <option value='4'>4 שותפים</option>
-              </select>
-            </div>
-          </div>
-
-          <!-- Floor + Elevator -->
-          <div class='row'>
-            <!-- Floor -->
-            <div id='floor-div' class='form-group col-xs-10 col-sm-7 col-md-6'>
-              <label class='control-label' for='floor'>קומה, יחסית לקומת כניסה <span style='font-size: 11px; color: red'>*אם קומה לא מופיעה, בחר/י את הקרובה אליה</span></label>
-              <select id='floor' class='form-control' onchange='updateFloor(value)'>
-                <option>3</option>
-                <option>2</option>
-                <option>1</option>
-                <option selected>0</option>
-                <option>-1</option>
-                <option>-2</option>
-                <option>-3</option>
-              </select>
-            </div>
-
-            <!-- Elevator -->
-            <div class='form-group col-xs-1'>
-              <div class='checkbox'>
-                <label for='elevator'>
-                  <input type='checkbox' id='elevator' onclick='updateElevator(checked)' />
-                  מעלית
-                </label>
-              </div>
-            </div>
-          </div>
-
-          <!-- Renovation level -->
-          <div class='row'>
-            <div id='renovationLevel-div' class='form-group col-xs-12 col-sm-10 col-md-7'>
-              <label class='control-label' for='renovationLevel'>רמת שיפוץ</label>
-              <select id='renovationLevel' class='form-control' onchange='updateRenovationLevel(value);'>
-                <option value='' disabled selected>בחר/י אפשרות</option>
-                <option value='old'>ישנה</option>
-                <option value='decent'>סבירה</option>
-                <option value='renovated'>משופצת</option>
-                <option value='premium'>שיפוץ פרמיום</option>
-              </select>
-            </div>
-          </div>
-
-          <!-- Apartment size -->
-          <div class='row'>
-            <div id='apartmentSize-div' class='form-group col-xs-12 col-sm-10 col-md-7'>
-              <label class='control-label' for='apartmentSize'>גודל דירה</label>
-              <select id='apartmentSize' class='form-control' onchange='updateApartmentSize(value);'>
-                <option value='' disabled selected>בחר/י אפשרות</option>
-                <option value='small'>קטנה</option>
-                <option value='regular'>רגילה</option>
-                <option value='large'>גדולה</option>
-              </select>
-            </div>
-          </div>
-
-          <!-- Room size + Room parent unit -->
-          <div class='row'>
-            <!-- Room size -->
-            <div id='roomSize-div' class='form-group col-xs-10 col-sm-7 col-md-6'>
-              <label class='control-label' for='roomSize'>גודל חדר</label>
-              <select id='roomSize' class='form-control' onchange='updateRoomSize(value);'>
-                <option value='' disabled selected>בחר/י אפשרות</option>
-                <option value='small'>קטן (8-10 מ'ר)</option>
-                <option value='regular'>רגיל (10-12 מ'ר)</option>
-                <option value='large'>גדול (מעל ל-12 מ'ר)</option>
-              </select>
-            </div>
-
-            <!-- Room parent unit -->
-            <div class='form-group col-xs-1'>
-              <div class='checkbox'>
-                <label for='roomParentUnit'>
-                  <input type='checkbox' id='roomParentUnit' onclick='updateRoomParentUnit(checked)'/>
-                  יחידת הורים
-                </label>
-              </div>
-            </div>
-          </div>
-
-          <!-- Air Conditioning -->
-          <div class='row'>
-            <h1>מיזוג אוויר</h1>
-          </div>
-
-          <div class='row'>
-            <div class='col-xs-12 col-sm-10 col-md-7'>
-              <div class='form-group checkbox'>
-                <label for='livingRoomAC'>
-                  <input type='checkbox' id='livingRoomAC' onclick='updateLivingRoomAC(checked)'/>
-                  סלון
-                </label>
-              </div>
-
-              <div class='form-group checkbox'>
-                <label for='bedRoomAC'>
-                  <input type='checkbox' id='bedRoomAC' onclick='updateBedRoomAC(checked)'/>
-                  חדר שינה
-                </label>
-              </div>
-            </div>
-          </div>
-
-          <!-- Furniture -->
-
-          <div class='row'>
-            <h1>ריהוט</h1>
-          </div>
-
-          <!-- Room furniture -->
-          <div class='row'>
-            <div id='roomFurniture-div' class='col-xs-12 col-sm-10 col-md-7'>
-              <label class='control-label' for='roomFurniture'>ריהוט חדר שינה</label>
-              <select id='roomFurniture' class='form-control' onchange='updateRoomFurniture(value);'>
-                <option value='' disabled selected>בחר/י אפשרות</option>
-                <option value='none'>ללא</option>
-                <option value='partial'>חלקי</option>
-                <option value='full'>מלא</option>
-              </select>
-            </div>
-          </div>
-
-          <!-- Apartment furniture -->
-          <div class='row'>
-            <div id='apartmentFurniture-div' class='col-xs-12 col-sm-10 col-md-7'>
-              <label class='control-label' for='apartmentFurniture'>ריהוט משותף בדירה</label>
-              <select id='apartmentFurniture' class='form-control' onchange='updateApartmentFurniture(value);'>
-                <option value='' disabled selected>בחר/י אפשרות</option>
-                <option value='none'>ללא</option>
-                <option value='partial'>חלקי</option>
-                <option value='full'>מלא</option>
-              </select>
-            </div>
-          </div>
-
-          <!-- Electrical Appliances -->
-          <div class='row'>
-            <h3>מכשירים חשמליים</h3>
-          </div>
-
-          <div class='row'>
-            <div class='col-xs-12 col-sm-10 col-md-7'>
-              <div class='form-group checkbox'>
-                <label for='refrigerator'>
-                  <input type='checkbox' id='refrigerator' onclick='updateRefrigerator(checked)'/>
-                  מקרר
-                </label>
-              </div>
-
-              <div class='form-group checkbox'>
-                <label for='oven'>
-                  <input type='checkbox' id='oven' onclick='updateOven(checked)'/>
-                  תנור
-                </label>
-              </div>
-
-              <div class='form-group checkbox'>
-                <label for='laundryMachine'>
-                  <input type='checkbox' id='laundryMachine' onclick='updateLaundryMachine(checked)'/>
-                  מכונת כביסה
-                </label>
-              </div>
-            </div>
-          </div>
-
-          <!-- Extras -->
-          <div class='row'>
-            <h1>תוספות</h1>
-          </div>
-
-          <div class='row'>
-            <div class='col-xs-12 col-sm-10 col-md-7'>
-
-              <!-- Garden -->
-              <div class='form-group checkbox'>
-                <label for='garden'>
-                  <input type='checkbox' id='garden' onclick='updateGarden(checked)'/>
-                  גינה
-                </label>
-              </div>
-
-              <!-- Balcony -->
-              <div class='form-group checkbox'>
-                <label for='balcony'>
-                  <input type='checkbox' id='balcony' onclick='updateBalcony(checked)'/>
-                  מרפסת
-                </label>
-              </div>
-            </div>
-          </div>
-
-
-          <!-- Submit button --> 
-
-          <div class='row'>
-            <div class='col-xs-12 col-sm-10 col-md-7'>
-              <button class='btn btn-primary btn-block active' id='submitButton'>
-                <span class='glyphicon glyphicon-home' aria-hidden='true'></span> שלח
-              </button>
-            </div>
-          </div>
-        </form>
-
-        <div class='row'>
-          <br/>
-          <div class='col-xs-12 col-sm-10 col-md-7'>
-            <div id='finalPriceBox' class='alert alert-info' role='alert'>
-              <span>מחיר שכירות הוגן עבור הדירה הנ'ל הינו:</span>
-              <span id='priceFinal'></span>
-            </div>
-            <div id='processingRequestMessageBox' class='alert alert-warning' role='alert'>
-              בקשה נמצאת בטיפול, אנא המתן/י.
-            </div>
-            <div id='errorsMessageBox' class='alert alert-danger' role='alert'>
-              <span>התגלו שגיאות בטופס.</span>
-              <span id='calculationErrors'></span>
-            </div>
-            <div id='emptyFieldsMessageBox' class='alert alert-danger' role='alert'>
-              חלק מהשדות הושארו ריקים. אנא מלא/י אותם.
-            </div>
-          </div>
+      <!-- Living Arrangement -->
+      <div id='arrangement-div' class='form-group col-xs-12 col-sm-10 col-sm-offset-1'>
+        <label class='control-label'>הסדר מגורים</label>
+        <div class='radio'>
+          <label for='single'>
+            <input name='living_arrangement' type='radio' id='single' onchange='updateLivingArrangement(id);'/>
+            יחיד
+          </label>
+        </div>
+        <div class='radio'>
+          <label for='couple'>
+            <input name='living_arrangement' type='radio' id='couple' onchange='updateLivingArrangement(id);'/>
+            זוג
+          </label>
+        </div>
+        <div class='radio'>
+          <label for='roommates'>
+            <input name='living_arrangement' type='radio' id='roommates' onchange='updateLivingArrangement(id);'/>
+            שותפים
+          </label>
         </div>
       </div>
-    </main>
 
-    <!--Responsive Footer-->
+      <!-- Number of roommates -->
+      <div id='roommates-div' class='form-group col-xs-12 col-sm-10 col-sm-offset-1'>
+        <label class='control-label' for='roommatesNumberSelect'>מס' השותפים בדירה</label>
+        <select id='roommatesNumberSelect' class = 'form-control' onchange='updateRoommatesNumber(value);' >
+          <option value='' disabled selected>בחר/י אפשרות</option>
+          <option value='2'>2 שותפים</option>
+          <option value='3'>3 שותפים</option>
+          <option value='4'>4 שותפים</option>
+        </select>
+      </div>
+
+      <!-- Floor + Elevator -->
+      <!-- Floor -->
+      <div id='floor-div' class='form-group col-xs-9 col-sm-8 col-sm-offset-1'>
+        <label class='control-label' for='floor'>קומה, יחסית לקומת כניסה <span style='font-size: 11px; color: red'>*אם קומה לא מופיעה, בחר/י את הקרובה אליה</span></label>
+        <select id='floor' class='form-control' onchange='updateFloor(value)'>
+          <option>3</option>
+          <option>2</option>
+          <option>1</option>
+          <option selected>0</option>
+          <option>-1</option>
+          <option>-2</option>
+          <option>-3</option>
+        </select>
+      </div>
+
+      <!-- Elevator -->
+      <div class='form-group col-xs-3'>
+        <div class='checkbox'>
+          <label for='elevator'>
+            <input type='checkbox' id='elevator' onclick='updateElevator(checked)' />
+            מעלית
+          </label>
+        </div>
+      </div>
+
+      <!-- Renovation level -->
+      <div id='renovationLevel-div' class='form-group col-xs-12 col-sm-10 col-sm-offset-1'>
+        <label class='control-label' for='renovationLevel'>רמת שיפוץ</label>
+        <select id='renovationLevel' class='form-control' onchange='updateRenovationLevel(value);'>
+          <option value='' disabled selected>בחר/י אפשרות</option>
+          <option value='old'>ישנה</option>
+          <option value='decent'>סבירה</option>
+          <option value='renovated'>משופצת</option>
+          <option value='premium'>שיפוץ פרמיום</option>
+        </select>
+      </div>
+
+      <!-- Apartment size -->
+      <div id='apartmentSize-div' class='form-group col-xs-12 col-sm-10 col-sm-offset-1'>
+        <label class='control-label' for='apartmentSize'>גודל דירה</label>
+        <select id='apartmentSize' class='form-control' onchange='updateApartmentSize(value);'>
+          <option value='' disabled selected>בחר/י אפשרות</option>
+          <option value='small'>קטנה</option>
+          <option value='regular'>רגילה</option>
+          <option value='large'>גדולה</option>
+        </select>
+      </div>
+
+      <!-- Room size + Room parent unit -->
+      <!-- Room size -->
+      <div id='roomSize-div' class='form-group col-xs-9 col-sm-8 col-sm-offset-1'>
+        <label class='control-label' for='roomSize'>גודל חדר</label>
+        <select id='roomSize' class='form-control' onchange='updateRoomSize(value);'>
+          <option value='' disabled selected>בחר/י אפשרות</option>
+          <option value='small'>קטן (8-10 מ'ר)</option>
+          <option value='regular'>רגיל (10-12 מ'ר)</option>
+          <option value='large'>גדול (מעל ל-12 מ'ר)</option>
+        </select>
+      </div>
+
+      <!-- Room parent unit -->
+      <div class='form-group col-xs-3'>
+        <div class='checkbox'>
+          <label for='roomParentUnit'>
+            <input type='checkbox' id='roomParentUnit' onclick='updateRoomParentUnit(checked)'/>
+            יחידת הורים
+          </label>
+        </div>
+      </div>
+
+      <!-- Air Conditioning -->
+
+      <div class='col-xs-12 col-sm-10 col-sm-offset-1'>
+        <h2>מיזוג אוויר</h2>
+        <div class='form-group checkbox'>
+          <label for='livingRoomAC'>
+            <input type='checkbox' id='livingRoomAC' onclick='updateLivingRoomAC(checked)'/>
+            סלון
+          </label>
+        </div>
+
+        <div class='form-group checkbox'>
+          <label for='bedRoomAC'>
+            <input type='checkbox' id='bedRoomAC' onclick='updateBedRoomAC(checked)'/>
+            חדר שינה
+          </label>
+        </div>
+      </div>
+
+      <!-- Furniture -->
+
+      <!-- Room furniture -->
+      <div id='roomFurniture-div' class='col-xs-12 col-sm-10 col-sm-offset-1'>
+        <h2>ריהוט</h2>
+        <label class='control-label' for='roomFurniture'>ריהוט חדר שינה</label>
+        <select id='roomFurniture' class='form-control' onchange='updateRoomFurniture(value);'>
+          <option value='' disabled selected>בחר/י אפשרות</option>
+          <option value='none'>ללא</option>
+          <option value='partial'>חלקי</option>
+          <option value='full'>מלא</option>
+        </select>
+      </div>
+
+      <!-- Apartment furniture -->
+      <div id='apartmentFurniture-div' class='col-xs-12 col-sm-10 col-sm-offset-1'>
+        <label class='control-label' for='apartmentFurniture'>ריהוט משותף בדירה</label>
+        <select id='apartmentFurniture' class='form-control' onchange='updateApartmentFurniture(value);'>
+          <option value='' disabled selected>בחר/י אפשרות</option>
+          <option value='none'>ללא</option>
+          <option value='partial'>חלקי</option>
+          <option value='full'>מלא</option>
+        </select>
+      </div>
+
+      <!-- Electrical Appliances -->
+
+      <div class='col-xs-12 col-sm-10 col-sm-offset-1'>
+        <h3>מכשירים חשמליים</h3>
+        <div class='form-group checkbox'>
+          <label for='refrigerator'>
+            <input type='checkbox' id='refrigerator' onclick='updateRefrigerator(checked)'/>
+            מקרר
+          </label>
+        </div>
+
+        <div class='form-group checkbox'>
+          <label for='oven'>
+            <input type='checkbox' id='oven' onclick='updateOven(checked)'/>
+            תנור
+          </label>
+        </div>
+
+        <div class='form-group checkbox'>
+          <label for='laundryMachine'>
+            <input type='checkbox' id='laundryMachine' onclick='updateLaundryMachine(checked)'/>
+            מכונת כביסה
+          </label>
+        </div>
+      </div>
+
+      <!-- Extras -->
+
+      <div class='col-xs-12 col-sm-10 col-sm-offset-1'>
+        <h2>תוספות</h2>
+
+        <!-- Garden -->
+        <div class='form-group checkbox'>
+          <label for='garden'>
+            <input type='checkbox' id='garden' onclick='updateGarden(checked)'/>
+            גינה
+          </label>
+        </div>
+
+        <!-- Balcony -->
+        <div class='form-group checkbox'>
+          <label for='balcony'>
+            <input type='checkbox' id='balcony' onclick='updateBalcony(checked)'/>
+            מרפסת
+          </label>
+        </div>
+      </div>
+
+
+      <!-- Submit button --> 
+
+      <div class='col-xs-12 col-sm-10 col-sm-offset-1'>
+        <button class='btn btn-primary btn-block active' id='submitButton'>
+          <span class='glyphicon glyphicon-home' aria-hidden='true'></span> שלח
+        </button>
+      </br>
+      </div>
+    </form>
+
+    <div class='col-xs-12 col-sm-10 col-sm-offset-1'>
+      <div id='finalPriceBox' class='alert alert-info' role='alert'>
+        <span>מחיר שכירות הוגן עבור הדירה הנ'ל הינו:</span>
+        <span id='priceFinal'></span>
+      </div>
+      <div id='processingRequestMessageBox' class='alert alert-warning' role='alert'>
+        בקשה נמצאת בטיפול, אנא המתן/י.
+      </div>
+      <div id='errorsMessageBox' class='alert alert-danger' role='alert'>
+        <span>התגלו שגיאות בטופס.</span>
+        <span id='calculationErrors'></span>
+      </div>
+      <div id='emptyFieldsMessageBox' class='alert alert-danger' role='alert'>
+        חלק מהשדות הושארו ריקים. אנא מלא/י אותם.
+      </div>
+    </div>
+  </div>
+
+  <!--Responsive Footer-->
+  <div class='container'>
     <footer class='page-footer'>
       <div class='container text-center'>
-        <div class='row'>
           <hr class='footer'>
           <span id='copyright'>
             &copy;
           </span>
-        </div>
       </div>
     </footer>
+  </div>
 
-    <!-- Import jQuery before bootstrap.js -->
-    <script type='text/javascript' src='jquery/jquery-2.1.1.min.js'></script>
-    <script type='text/javascript' src='bootstrap/js/bootstrap.min.js'></script>
-    <script type='text/javascript' src='formHandling.min.js'></script>
+  <!-- Import jQuery before bootstrap.js -->
+  <script type='text/javascript' src='jquery/jquery-2.1.1.min.js'></script>
+  <script type='text/javascript' src='bootstrap/js/bootstrap.min.js'></script>
+  <script type='text/javascript' src='formHandling.min.js'></script>
 
-    <script>
-    var currentYear = (new Date).getFullYear();
-    var spaces = '&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp'
-    var copyrightMessage = 'כל הזכויות שמורות. האתר עוצב ונבנה ע"י איתי פרי ועומר גולדברג';
-    if(currentYear > 2015) {
-      $('#copyright').append(' 2015 - ' + Date.getFullYear() + spaces + copyrightMessage);
-    } else {
-      $('#copyright').append(' 2015' + spaces + copyrightMessage);
-    }
-    </script>
+  <script>
+  var currentYear = (new Date).getFullYear();
+  var spaces = '&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp'
+  var copyrightMessage = 'כל הזכויות שמורות. האתר עוצב ונבנה ע"י איתי פרי ועומר גולדברג';
+  if(currentYear > 2015) {
+    $('#copyright').append(' 2015 - ' + Date.getFullYear() + spaces + copyrightMessage);
+  } else {
+    $('#copyright').append(' 2015' + spaces + copyrightMessage);
+  }
+  </script>
 
-  </body>
+</body>
 </html>
