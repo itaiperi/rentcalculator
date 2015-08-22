@@ -5,115 +5,88 @@ var formDataObj = {
   'roommates': 0, 
   'floor': 0,
   'elevator': false,
+  'bars': false,
   'renovationLevel': '',
   'apartmentSize': '',
   'roomSize': '',
   'roomParentUnit': false,
-  'airConditioning': {
-    'bedroom': false,
-    'livingroom': false
-  },
-  'electricalAppliances': {
-    'refrigerator': false,
-    'laundryMachine': false,
-    'oven': false
-  },
+  'solarBoiler': false,
+  'bars': false,
+  'nets': false,
+  'bedRoomAC': false,
+  'livingRoomAC': false,
+  'refrigerator': false,
+  'laundryMachine': false,
+  'laundryDryer': false,
+  'oven': false,
   'roomFurniture': '',
   'apartmentFurniture': '',
   'garden': false,
-  'balcony': false
+  'balcony': false,
+  'roofBalcony': false
 }
+
+$('#address').typeahead({
+  hint: true,
+  highlight: true,
+  minLength: 1,
+  maxItem: 8,
+  dynamic: true,
+  source: {
+    addresses: {
+      url: {
+        type: 'GET',
+        url: '/getaddresses/',
+        data: {
+          address: '{{query}}'
+        }
+      }
+    }
+  },
+  callback: {
+    onClickAfter: function(node, query) {
+      updateData('address', $('#address').val(), 'string');
+    }
+  }
+});
 
 var processingRequest = false;
 
-function updateAddress(value) {
-  formDataObj.address = value;
-}
-
-function updateRoomsNumber(val) {
-  formDataObj.rooms= parseInt(val);
-}
-
-function updateLivingArrangement(val) {
-  formDataObj.arrangement = val;
-  if (val == 'roommates') {
-    $('#roommates-div').show();
-  }
-  else {
-    $('#roommates-div').hide();
-  }
-}
-
-function updateRoommatesNumber(val) { 
-  if(formDataObj.arrangement == 'roommates') { 
-    formDataObj.roommates = parseInt(val);
+function updateData(field, value, type) {
+  if (field == 'arrangement') {
+    if (value == 'roommates') {
+      $('#roommates-div').show();
+      $('#roommatesNumberSelect').val('0');
+      $('#roomSize-div').show();
+      $('#roomSize').val('');
+      $('#roomParentUnit-div').show();
+      $('#roomParentUnit').prop('checked', false);
+    }
+    else {
+      $('#roommates-div').hide();
+      formDataObj.roommates = 0;
+      $('#roomSize-div').hide();
+      formDataObj.roomSize = '';
+      $('#roomParentUnit-div').hide();
+      formDataObj.roomParentUnit = false;
+    }
   }
 
-}
-
-function updateFloor(val) {
-  formDataObj.floor = parseInt(val);
-}
-
-function updateElevator(val) {
-  formDataObj.elevator = val;
-}
-
-function updateRenovationLevel(val) {
-  formDataObj.renovationLevel = val;
-}
-
-function updateApartmentSize(val) {
-  formDataObj.apartmentSize = val; 
-}
-
-function updateRoomSize(val) {
-  formDataObj.roomSize = val;
-}
-
-function updateRoomParentUnit(val) {
-  formDataObj.roomParentUnit = val;
-}
-
-function updateLivingRoomAC(val) {
-  formDataObj.airConditioning.livingroom = val;
-}
-
-function updateBedRoomAC(val) {
-  formDataObj.airConditioning.bedroom = val;
-}
-
-function updateRoomFurniture(val) {
-  formDataObj.roomFurniture = val;
-}
-
-function updateApartmentFurniture(val) {
-  formDataObj.apartmentFurniture = val;
-}
-
-function updateGarden(val) {
-  formDataObj.garden = val;
-}
-
-function updateBalcony(val) {
-  formDataObj.balcony = val;
-}
-
-function updateRefrigerator(val) {
-  formDataObj.electricalAppliances.refrigerator = val;
-}
-
-function updateOven(val) {
-  formDataObj.electricalAppliances.oven = val;
-}
-
-function updateLaundryMachine(val) {
-  formDataObj.electricalAppliances.laundryMachine = val;
+  switch (type) {
+    case 'number':
+      formDataObj[field] = parseFloat(value);
+      break;
+    default:
+      formDataObj[field] = value;
+      break;
+  }
 }
 
 // validating all relevant fields in form 
 
 function processData(e) {
+
+  console.log(formDataObj);
 
   var fieldsToCheck = {
     'address': {'default': '', 'controlDivName': 'address-div'},
@@ -143,7 +116,6 @@ function processData(e) {
   }
 
   $('#finalPriceBox').hide();
-  $('#processingRequestMessageBox').hide();
   $('#errorsMessageBox').hide();
   $('#emptyFieldsMessageBox').hide();
 
@@ -181,7 +153,6 @@ function processData(e) {
       xhr.send(JSON.stringify(formDataObj));
     } else {
       $('#finalPriceBox').hide();
-      $('#processingRequestMessageBox').show();
     }
   }
 }
