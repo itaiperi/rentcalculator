@@ -6,7 +6,8 @@ var errors = {
   13: {'statusCode': 13, 'status': 'Database error, <replace1> is not a valid attribute'},
   14: {'statusCode': 14, 'status': 'Parameter not passed to calculator'},
   15: {'statusCode': 15, 'status': 'Did not receive any response from Google Directions API'},
-  16: {'statusCode': 16, 'status': 'Google Directions API returned zero results'}
+  16: {'statusCode': 16, 'status': 'Google Directions API returned zero results'},
+  20: {'statusCode': 20, 'status': 'internal server error'}
 };
 
 exports.error = function error(code, component, replace1, replace2) {

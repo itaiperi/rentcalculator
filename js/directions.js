@@ -1,6 +1,6 @@
 var request = require('request');
 var async = require('async');
-var errorGenerator = require('./errorgenerator.min');
+var errorGenerator = require('./errorgenerator');
 var baseURL = 'http://maps.googleapis.com/maps/api/directions/json';
 
 
